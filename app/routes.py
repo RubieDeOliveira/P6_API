@@ -1,6 +1,10 @@
-from flask import request, jsonify
+from flask import request
+
 
 from app import app
+from app.model import Model
+
+model = Model()
 
 
 @app.route('/tags', methods=['POST'])
@@ -9,7 +13,7 @@ def tags():
         return "Bad request, please specify question to predict in body.\n" \
                "Expected format: { 'question': 'your question' }", 400
     question = request.json['question']
-    print(question)
-    return "OK"
-
-
+    tags = model.predict_tags(question)
+    if len(tags) == 0:
+        tags = ["Sorry no tags found for your question. We have to learn a little bit more."]
+    return {"tags": tags}
