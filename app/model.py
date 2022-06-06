@@ -1,6 +1,7 @@
 import pickle
 
 import numpy as np
+import sklearn
 
 
 class Model:
@@ -11,11 +12,11 @@ class Model:
             self.model = pickle.load(handle)
 
         # Load vectorizer
-        with open('../resources/model.pickle', 'rb') as handle:
+        with open('../resources/vectorizer.pickle', 'rb') as handle:
             self.vectorizer = pickle.load(handle)
 
         # Load y
-        with open('../resources/model.pickle', 'rb') as handle:
+        with open('../resources/y.pickle', 'rb') as handle:
             self.y = pickle.load(handle)
 
     def predict_tags(self, data):
