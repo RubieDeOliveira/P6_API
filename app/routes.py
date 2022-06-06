@@ -7,6 +7,11 @@ from app.model import Model
 model = Model()
 
 
+@app.route('/')
+def hello():
+    return "Welcome the the P6 api"
+
+
 @app.route('/tags', methods=['POST'])
 def tags():
     if "question" not in request.json.keys():
