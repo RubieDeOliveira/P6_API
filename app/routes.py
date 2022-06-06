@@ -7,7 +7,7 @@ from app.model import Model
 model = Model()
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def hello():
     return "Welcome the the P6 api"
 
