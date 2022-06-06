@@ -9,7 +9,7 @@ model = Model()
 
 @app.route('/', methods=['GET'])
 def hello():
-    return "Welcome the the P6 api"
+    return "Welcome to the P6 api"
 
 
 @app.route('/tags', methods=['POST'])
